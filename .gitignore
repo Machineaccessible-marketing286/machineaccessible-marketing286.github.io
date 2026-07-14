@@ -1,0 +1,30 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+# --- Private Premium Core App Folders ---
+pro-bio-premium-app/
+pro-bio-tech-app/
+
+# --- Private Premium Content & Strategies ---
+PRO_BIO_PREMIUM_APP_INFO.txt
+PRO_BIO_APP_INFO.txt
+PRO_BIO_TECH_APP_INFO.txt
+MONETIZATION.md
+CONTENT_GENERATOR_PROMPTS.md
+REPO_STRUCTURE_GUIDE.txt
+PROJECT_OVERVIEW.md
+HOME_LAB_TECH_PACK.md
+
+# --- Local Environment & Testing Backups ---
+.env
+.env.example
+index.html.premium.bak
+index_test.html
+script_test.js
+test-results/
+index-old.html

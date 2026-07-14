@@ -1,0 +1,137 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "content"
+    label: "Portfolio Data"
+    files:
+      - label: "Identity & Profile"
+        name: "identity"
+        file: "public/identity.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - {label: "Theme Layout", name: "meta.layout", widget: "select", options: ["builder", "executive", "creative"]}
+          - {label: "Theme Style", name: "meta.style", widget: "select", options: ["nexstudio", "minimal", "editorial", "rugged", "natural"]}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Bio", name: "bio", widget: "text"}
+          - {label: "Avatar URL", name: "avatar", widget: "image"}
+          - label: "Social Links"
+            name: "socials"
+            widget: "list"
+            fields:
+              - {label: "Platform", name: "platform", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+          - {label: "Location", name: "location", widget: "string"}
+          - {label: "Tracking URL", name: "tracking_url", widget: "string", required: false}
+          - {label: "Metric 1 Label", name: "metric_1_label", widget: "string"}
+          - {label: "Metric 1 Value", name: "metric_1_val", widget: "string"}
+          - {label: "Metric 2 Label", name: "metric_2_label", widget: "string"}
+          - {label: "Metric 2 Value", name: "metric_2_val", widget: "string"}
+          - {label: "Metric 3 Label", name: "metric_3_label", widget: "string"}
+          - {label: "Metric 3 Value", name: "metric_3_val", widget: "string"}
+          - {label: "Story Title", name: "story_title", widget: "string"}
+          - {label: "Story Text", name: "story_text", widget: "text"}
+          - {label: "Anecdote Title", name: "anecdote_title", widget: "string"}
+          - {label: "Anecdote Text", name: "anecdote_text", widget: "text"}
+          
+      - label: "Case Studies"
+        name: "case_studies"
+        file: "public/case_studies.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Case Studies"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - {label: "Category", name: "category", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Tags", name: "tags", widget: "list", required: false}
+              - {label: "Situation", name: "situation", widget: "text"}
+              - {label: "Task", name: "task", widget: "text"}
+              - {label: "Action", name: "action", widget: "text"}
+              - {label: "Result", name: "result", widget: "text"}
+              - {label: "Metrics", name: "metrics", widget: "string", required: false}
+              - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+      - label: "Projects Grid"
+        name: "projects"
+        file: "public/projects.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Type (e.g. Business, Student Project)", name: "type", widget: "string", required: false}
+              - {label: "GitHub Link", name: "github_url", widget: "string", required: false}
+              - {label: "External Link", name: "external_url", widget: "string", required: false}
+              - {label: "Description", name: "description", widget: "text"}
+
+      - label: "Media Links"
+        name: "media_links"
+        file: "public/media_links.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - label: "Media Links"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Type (e.g. Article, Video)", name: "type", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Platform", name: "platform", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+      - label: "Home Lab Tech Pack"
+        name: "homelab"
+        file: "public/homelab.json"
+        extension: "json"
+        format: "json"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Mission / Architectural Philosophy", name: "mission", widget: "text"}
+          - label: "Cluster Health & Status"
+            name: "health"
+            widget: "object"
+            fields:
+              - {label: "Primary Hypervisor", name: "primary_hypervisor", widget: "string"}
+              - {label: "Lab Status", name: "status", widget: "select", options: ["🟢 Online", "🟡 Maintenance", "🔵 Upgrading Cluster", "🔴 Degraded"]}
+              - {label: "Uptime SLA", name: "uptime", widget: "string"}
+              - {label: "Backup Strategy", name: "backup_strategy", widget: "string"}
+          - label: "Infrastructure Nodes"
+            name: "nodes"
+            widget: "list"
+            fields:
+              - {label: "Node Name", name: "node_name", widget: "string"}
+              - {label: "Hypervisor OS", name: "hypervisor", widget: "string"}
+              - {label: "Role", name: "role", widget: "string"}
+              - {label: "CPU Specification", name: "cpu", widget: "string"}
+              - {label: "RAM Spec", name: "ram", widget: "string"}
+              - {label: "Storage Architecture", name: "storage", widget: "string"}
+              - {label: "Active VMs/CTs Count", name: "vm_count", widget: "number", value_type: "int"}
+              - {label: "CPU Load (%)", name: "cpu_load", widget: "number", value_type: "int"}
+              - {label: "RAM Load (%)", name: "ram_load", widget: "number", value_type: "int"}
+          - label: "Core Services Showcase"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Service Name", name: "service_name", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["Infrastructure & Identity", "Networking & DNS", "Storage & Backup", "Containers & Orchestration", "Monitoring"]}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Status Icon (Lucide)", name: "icon", widget: "string"}

@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio Engine",
+  "description": "A database-less Personal Identity, Storytelling, and Case Study engine supporting multiple visual archetypes and automatic CSV synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
